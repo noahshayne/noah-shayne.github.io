@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vulnerable Page</title>
+</head>
+<body>
+  <h1>Welcome to Our Search Page</h1>
+  <label for="searchInput">Search:</label>
+  <input type="text" id="searchInput">
+  <button onclick="updateContent()">Search</button>
+
+  <script>
+    // Function to be executed when the user clicks the search button
+    function updateContent() {
+      var searchInput = document.getElementById("searchInput").value;
+      if(searchInput !== "") {
+        // Redirect to the same page with the search query as a URL parameter
+        window.location.href = window.location.pathname + "?Name=" + searchInput;
+      } else {
+        alert("No search query provided!");
+      }
+    }
+
+    // Retrieve the search query parameter from the URL and display the search results
+    var urlParams = new URLSearchParams(window.location.search);
+    var query = urlParams.get('Name');
+    if(query !== null && query !== "") {
+      var searchResults = document.getElementById("searchResults");
+      searchResults.innerHTML = "Your search for '" + query + "' returned the following results.";
+    }
+  </script>
+
+  <div id="searchResults"></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vulnerable Page</title>
+</head>
+<body>
+  <h1>Welcome to Our Search Page</h1>
+  <label for="searchInput">Search:</label>
+  <input type="text" id="searchInput">
+  <button onclick="updateContent()">Search</button>
+
+  <script>
+    // Function to be executed when the user clicks the search button
+    function updateContent() {
+      var searchInput = document.getElementById("searchInput").value;
+      if(searchInput !== "") {
+        // Redirect to the same page with the search query as a URL parameter
+        window.location.href = window.location.pathname + "?Name=" + searchInput;
+      } else {
+        alert("No search query provided!");
+      }
+    }
+
+    // Retrieve the search query parameter from the URL and display the search results
+    var urlParams = new URLSearchParams(window.location.search);
+    var query = urlParams.get('Name');
+    if(query !== null && query !== "") {
+      var searchResults = document.getElementById("searchResults");
+      searchResults.innerHTML = "Your search for '" + query + "' returned the following results.";
+    }
+  </script>
+
+  <div id="searchResults"></div>
+</body>
+</html>
